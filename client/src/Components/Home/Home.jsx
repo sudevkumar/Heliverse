@@ -166,7 +166,7 @@ const Home = ({
         <button onClick={() => handlePrevNext("prev", -1)}>Prev</button>
         <button onClick={() => handlePrevNext("next", 1)}>Next</button>
       </div>
-      ;
+      ) ;
     </>
   );
 };
