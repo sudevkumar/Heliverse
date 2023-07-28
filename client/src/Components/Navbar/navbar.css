@@ -1,0 +1,43 @@
+.Navbar {
+  width: 100%;
+  height: 50px;
+  background-color: aqua;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url("https://pbs.twimg.com/ext_tw_video_thumb/1679055255814778881/pu/img/GEF1OLCmSDHRTBip?format=jpg&name=large");
+}
+
+.Navbar .img {
+  width: 30%;
+  height: 100%;
+}
+
+.Navbar .img img {
+  width: 30%;
+  height: 100%;
+}
+
+.search {
+  height: 60%;
+  width: 20%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.search input {
+  width: 90%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+.searchCross {
+  margin-right: 10px;
+}

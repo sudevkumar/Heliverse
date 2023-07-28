@@ -1,0 +1,84 @@
+.select-tag {
+  height: 50px;
+  width: 55%;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.Home {
+  height: auto;
+  width: 95%;
+  margin: auto;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.user_div {
+  height: aut;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+}
+
+.user_div > .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_div > .img > img {
+  height: 130px;
+}
+
+.user_div > .text {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.user_div > .text > h4 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.btns {
+  width: 65%;
+  height: auto;
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+}
+
+.btn_del_edit {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.btn_del_edit > button:nth-child(1) {
+  height: 30px;
+  width: 50px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn_del_edit > button:nth-child(2) {
+  height: 30px;
+  width: 50px;
+  background-color: red;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

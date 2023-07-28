@@ -1,0 +1,19 @@
+.EditPage {
+  height: 500px;
+  width: 59%;
+  margin: auto;
+  border: 1px solid red;
+  margin-top: 20px;
+}
+
+.EditPage h1 {
+  text-align: center;
+}
+
+.input__fields {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  border: 1px solid red;
+  margin-top: 20px;
+}
