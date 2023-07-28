@@ -17,13 +17,11 @@ const EditPage = ({ handleGetData }) => {
 
   const editUsers = async () => {
     const singleUser = await axios.get(
-      `http://localhost:5050/user/get-single/${params}`
+      `https://encouraging-blue-sunglasses.cyclic.app/user/get-single/${params}`
     );
 
     setEditUser(singleUser.data);
   };
-
-
 
   useEffect(() => {
     editUsers();
@@ -39,8 +37,10 @@ const EditPage = ({ handleGetData }) => {
       available: available || editUser?.available,
     };
 
-
-    axios.patch(`http://localhost:5050/user/update/${params}`, payload);
+    axios.patch(
+      `https://encouraging-blue-sunglasses.cyclic.app/user/update/${params}`,
+      payload
+    );
 
     navigate("/");
     alert("User updated");

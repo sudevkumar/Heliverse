@@ -6,7 +6,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 .Home {
@@ -24,7 +23,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px;
 }
 
@@ -46,6 +45,8 @@
 .user_div > .text > h4 {
   margin-top: 5px;
   margin-bottom: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
 }
 
 .btns {
@@ -55,7 +56,21 @@
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid red;
+}
+
+.btns button {
+  width: 60px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+}
+
+.btns :nth-child(1) {
+  background-color: rgb(234, 221, 222);
+}
+
+.btns :nth-child(2) {
+  background-color: rgb(218, 238, 229);
 }
 
 .btn_del_edit {
@@ -72,6 +87,7 @@
   color: #fff;
   border: none;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .btn_del_edit > button:nth-child(2) {
@@ -81,4 +97,92 @@
   color: #fff;
   border: none;
   cursor: pointer;
+  border-radius: 10px;
+}
+
+.filter_data {
+  width: 95%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter_data select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.filter_data button {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+@media all and (min-width: 550px) and (max-width: 890px) {
+  .Home {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+    gap: 1%;
+  }
+
+  .btns button {
+    width: 30%;
+    padding: 2%;
+  }
+}
+
+@media all and (max-width: 549px) {
+  .filter {
+    width: 100%;
+    padding: 1%;
+    display: grid;
+    grid-template-columns: repeat(1, fr);
+    /* gap: 5%; */
+  }
+
+  .filter select,
+  button {
+    margin: 2%;
+    padding: 1%;
+  }
+
+  .Home {
+    /* border: solid 1px red; */
+    width: 85%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(21, 1fr);
+    gap: 0.2%;
+  }
+
+  .btns button {
+    width: 40%;
+    padding: 3%;
+  }
+
+  .filter_data {
+    width: 95%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter_data select {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .filter_data button {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    cursor: pointer;
+  }
 }

@@ -28,40 +28,13 @@ const Home = ({
     setPage((prev) => prev + i);
   };
 
-  const onSubmit = (id) => {
-    confirmAlert({
-      title: "Confirm to Delete",
-      message: "Are you sure to delete this ?",
-      buttons: [
-        {
-          label: "Yes",
-          onClick: async () => {
-            try {
-              const res = await axios.delete(
-                `http://localhost:5050/user/delete/${id}`
-              );
-              handleGetData();
-              console.log(res);
-            } catch (error) {
-              console.error(error);
-            }
-          },
-        },
-        {
-          label: "No",
-          // onClick: () => alert("Click No")
-        },
-      ],
-    });
-  };
-
   const handleEdit = (id) => {
     naviaget(`/edit/${id}`);
   };
-  const obj = {};
+
   const fetApi = async () => {
     const filterData = await axios.get(
-      `http://localhost:5050/user/filter?page=${page}&size=20&domain=${domain}&gender=${gender}&available=${availibility}`
+      `https://encouraging-blue-sunglasses.cyclic.app/user/filter?page=${page}&size=20&domain=${domain}&gender=${gender}&available=${availibility}`
     );
 
     console.log(filterData);
@@ -79,13 +52,36 @@ const Home = ({
     setFilter(false);
   }, [page]);
 
-  const handleFiltersReset = () => {
-    setFilter(false);
+  const onHandleDelete = (id, name) => {
+    confirmAlert({
+      title: "Confirm to Delete",
+      message: `Are you sure to delete ${name} ?`,
+      buttons: [
+        {
+          label: "Yes",
+          onClick: async () => {
+            try {
+              const res = await axios.delete(
+                `https://encouraging-blue-sunglasses.cyclic.app//user/delete/${id}`
+              );
+              handleGetData();
+              console.log(res);
+            } catch (error) {
+              console.error(error);
+            }
+          },
+        },
+        {
+          label: "No",
+          // onClick: () => alert("Click No")
+        },
+      ],
+    });
   };
 
   return (
     <>
-      <div className="filter">
+      <div className="filter_data">
         <select name="" id="" onChange={(e) => setAvailibility(e.target.value)}>
           <option>Select Availibility</option>
           <option value="true">Yes</option>
@@ -104,6 +100,9 @@ const Home = ({
           <option>Select Gender</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
+          <option value="Agender">Agender</option>
+          <option value="Polygender">Polygender</option>
+          <option value="Non-binary">Non-binary</option>
         </select>
 
         <button onClick={handleFilter}>Filter</button>
@@ -126,7 +125,11 @@ const Home = ({
                 <div className="btn_del_edit">
                   <button onClick={() => handleEdit(user._id)}>Edit</button>
 
-                  <button onClick={() => onSubmit(user._id)}>Delete</button>
+                  <button
+                    onClick={() => onHandleDelete(user._id, user.first_name)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>
@@ -134,22 +137,25 @@ const Home = ({
         </div>
       ) : (
         <div className="Home">
-          {users.payload?.map((user, id) => (
+          {users.payload?.map((user) => (
             <div className="user_div" key={user._id}>
               <div className="img">
                 <img src={user.avatar} alt="" />
               </div>
               <div className="text">
-                <h4>
-                  Name : {user.first_name} {user.last_name}
-                </h4>
+                <h4>First Name : {user.first_name}</h4>
+                <h4>Last Name : {user.last_name}</h4>
                 <h4>Email : {user.email}</h4>
                 <h4>Gender : {user.gender}</h4>
                 <h4>Domain : {user.domain}</h4>
                 <h4>Available : {user.available === false ? "No" : "Yes"}</h4>
                 <div className="btn_del_edit">
                   <button onClick={() => handleEdit(user._id)}>Edit</button>
-                  <button onClick={() => onSubmit(user._id)}>Delete</button>
+                  <button
+                    onClick={() => onHandleDelete(user._id, user.first_name)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>

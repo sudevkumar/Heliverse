@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { FiSearch } from "react-icons/fi";
-import { ImCross } from "react-icons/im";
+import React, { useState } from "react";
+import { BiArrowToRight, BiArrowToLeft } from "react-icons/bi";
+
+import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 
 function Navbar({
@@ -12,6 +13,7 @@ function Navbar({
   fetchDataAgain,
 }) {
   const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
 
   const handleOnchange = (e) => {
     setSearchValue(e.target.value);
@@ -20,7 +22,7 @@ function Navbar({
   const handleGetDatas = async () => {
     setClick(true);
     const searchUsers = await axios.get(
-      `http://localhost:5050/user/search?first_name=${searchValue}`
+      `https://encouraging-blue-sunglasses.cyclic.app/user/search?first_name=${searchValue}`
     );
 
     setSearchUser(searchUsers);
@@ -32,15 +34,12 @@ function Navbar({
     setFetchDataAgain(!fetchDataAgain);
   };
 
+  const handleClick = () => {
+    navigate("/");
+  };
+
   return (
     <div className="Navbar">
-      <div className="img">
-        <img
-          src="https://media.licdn.com/dms/image/C560BAQGuaOKqrv080A/company-logo_200_200/0/1668497687688?e=2147483647&v=beta&t=EdBkr2SYrhi2V9UOztBXJ6ihnIvYjey00Goh1oCe0oU"
-          alt=""
-        />
-      </div>
-
       <div className="search">
         <input
           type="text"
@@ -49,20 +48,27 @@ function Navbar({
           placeholder="Find User By It's First Name"
         />
         {click === false ? (
-          <FiSearch
+          <BiArrowToRight
             size={20}
             onClick={handleGetDatas}
             cursor={"pointer"}
             className="searchCross"
           />
         ) : (
-          <ImCross
+          <BiArrowToLeft
             size={20}
             fontWeight={400}
             onClick={fetctAgainData}
             cursor={"pointer"}
           />
         )}
+      </div>
+
+      <div className="img" onClick={handleClick}>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/TeamViewer_logo.svg/4507px-TeamViewer_logo.svg.png"
+          alt=""
+        />
       </div>
     </div>
   );

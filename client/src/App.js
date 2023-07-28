@@ -22,7 +22,7 @@ function App() {
 
   const fetAllUser = () => {
     return axios.get(
-      `http://localhost:5050/user/get-paginated?page=${page}&size=20`
+      `https://encouraging-blue-sunglasses.cyclic.app//user/get-paginated?page=${page}&size=20`
     );
   };
 
